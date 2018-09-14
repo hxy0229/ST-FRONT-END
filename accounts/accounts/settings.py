@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+#import sqlserver_ado.dbapi
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,10 +81,24 @@ WSGI_APPLICATION = 'accounts.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+     'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'Singtel',
+        'USER': 'Singtel-IIP',
+        'PASSWORD': 'IIP@Singtel123',
+        'HOST': '192.168.43.95',
+        'PORT': '49172',
+
+        'OPTIONS': {
+           'driver': 'ODBC Driver 13 for SQL Server',
+           #'use_mars': True,
+           #'extra_params': '',
+           #'provider': 'SQLNCLI11',
+           #'disable_avg_cast': False,
+           #'use_legacy_date_fields': 'True',
+       },
+
+    },
 }
 
 

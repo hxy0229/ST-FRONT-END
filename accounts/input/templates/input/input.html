@@ -636,9 +636,9 @@ var nav = [
             <h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Customer</h2>
             <div class="kuma-form-item position">
                 <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Customer Information
+                    <span class="kuma-form-required">*</span>Customer Name
                 </label>
-                <button type="button" class="kuma-button kuma-button-lwhite schoolBtn">Select</button>
+                <button type="button" class="kuma-button kuma-button-lwhite schoolBtn">Search</button>
                 <span style="line-height: 29px;" class="positionName"></span>
                 <input name="position" class="positionInput" type="hidden" value=''>
             </div>
@@ -647,7 +647,7 @@ var nav = [
                 <label class="kuma-label">
                     <span class="kuma-form-required">*</span>UEN
                 </label>
-                <button type="button" class="kuma-button kuma-button-lwhite schoolBtn">Select</button>
+                <button type="button" class="kuma-button kuma-button-lwhite schoolBtn">Search</button>
                 <span style="line-height: 29px;" class="positionName"></span>
                 <input name="position" class="positionInput" type="hidden" value=''>
             </div>
@@ -663,7 +663,7 @@ var nav = [
                 <label class="kuma-label">
                     <span class="kuma-form-required">*</span>Generic Industry
                 </label>
-                <select name="informationSource" id="J_Select1" style="width:180px">
+                <select name="informationSource" id="J_Select1" style="width:300px">
                     <option value="ACCOMMODATION AND FOOD SERVICE ACTIVITIES">ACCOMMODATION AND FOOD SERVICE ACTIVITIES</option>
                     <option value="Unicareer">ACTIVITIES AUXILIARY TO FINANCIAL SERVICE AND INSURANCE ACTIVITIES</option>
                     <option value="Unicareer">ACTIVITIES OF EXTRA-TERRITORIAL ORGANISATIONS AND BODIES</option>
@@ -795,6 +795,22 @@ var nav = [
             </div>-->
 
             <h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Deal Information</h2>
+
+            <div class="kuma-form-item">
+                <label class="kuma-label">
+                    <span class="kuma-form-required">*</span>Generic Industry
+                </label>
+                <select name="informationSource" id="J_Select3" style="width:150px">
+                    <option value="Others">Upgrade</option>
+                    <option value="Others">Downgrade</option>
+                    <option value="Others">New</option>
+                    <option value="Others">Win-back</option>
+                    <option value="Others">Termination</option>
+                    <option value="Others">Renewal</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
             <div class="kuma-form-item">
                 <label class="kuma-label">
                     <span class="kuma-form-required">*</span>Deal Number
@@ -882,13 +898,40 @@ var nav = [
 
             <h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Product Information</h2>
             <div class="eduWrap"></div>
-            <button type="button" class="kuma-button kuma-button-lwhite addEdu">Add More</button>
 
             <div class="kuma-form-item">
                 <label class="kuma-label">
                     <span class="kuma-form-required">*</span>Product Category
                 </label>
-                <select name="graduateMonth" class="graduateMonth" style="width: 30px" data-type="Require" errorMsg="请选择开始时间">
+                <select name="informationSource" id="J_Select2" style="width:180px">
+                    <option value="ACCOMMODATION AND FOOD SERVICE ACTIVITIES">Application Defense</option>
+                    <option value="Unicareer">Cloud Security</option>
+                    <option value="Unicareer">Consulting Services</option>
+                    <option value="Unicareer">Content Defense</option>
+                    <option value="Unicareer">CSI</option>
+                    <option value="Unicareer">Data Centre Security</option>
+                    <option value="Unicareer">Endpoint Defense</option>
+                    <option value="Unicareer">Endpoint Security</option>
+                    <option value="Unicareer">MSS Others/option>
+                    <option value="Unicareer">Network Defense</option>
+                    <option value="Unicareer">Operational Technology Security</option>
+                    <option value="Unicareer">OT Security</option>
+                    <option value="Unicareer">PS Others</option>
+                    <option value="Unicareer">PS Others (Bespoke)</option>
+                    <option value="Unicareer">TS Others</option>
+                    <option value="Unicareer">TS Others (Bespoke)</option>
+                </select>
+
+                <a class="kuma-form-other kumaOther" href="https://tinyurl.com/y88ekzjk">Want to search by PIC?</a>
+            </div>
+
+
+            <div class="kuma-form-item">
+                <label class="kuma-label">
+                    <span class="kuma-form-required">*</span>RFS Month
+                </label>
+                <select name="graduateMonth" class="graduateMonth" style="width: 100px" data-type="Require" errorMsg="请选择开始时间">
+                 <option value="">MM</option>
                     <option value="1">01</option>
                     <option value="2">02</option>
                     <option value="3">03</option>
@@ -902,7 +945,7 @@ var nav = [
                     <option value="11">11</option>
                     <option value="12">12</option>
                 </select>
-                <select name="graduateYear" class="graduateYear" style="width: 30px; margin-right: 20px;" data-type="Require" errorMsg="请选择开始时间">
+                <select name="graduateYear" class="graduateYear" style="width: 100px; margin-right: 20px;" data-type="Require" errorMsg="请选择开始时间">
                     <option value="">YYYY</option>
                                             <option value="2018">2018</option>
                                             <option value="2019">2019</option>
@@ -915,36 +958,7 @@ var nav = [
                 </select>
             </div>
 
-            <div class="kuma-form-item">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>RFS Month
-                </label>
-                <select name="graduateMonth" class="graduateMonth" style="width: 30px" data-type="Require" errorMsg="请选择开始时间">
-                    <option value="1">01</option>
-                    <option value="2">02</option>
-                    <option value="3">03</option>
-                    <option value="4">04</option>
-                    <option value="5">05</option>
-                    <option value="6">06</option>
-                    <option value="7">07</option>
-                    <option value="8">08</option>
-                    <option value="9">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-                <select name="graduateYear" class="graduateYear" style="width: 30px; margin-right: 20px;" data-type="Require" errorMsg="请选择开始时间">
-                    <option value="">YYYY</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2022">2022</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2025">2025</option>
-                </select>
-            </div>
+            <button type="button" class="kuma-button kuma-button-lwhite addEdu">Add More</button>
 
             <h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Work/Internship Experiences</h2>
             <div class="kuma-form-item">

@@ -81,16 +81,16 @@ WSGI_APPLICATION = 'accounts.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'Singtel',
-        'USER': 'Singtel-IIP',
-        'PASSWORD': 'IIP@Singtel123',
-        'HOST': '192.168.43.95',
-        'PORT': '49172',
+        'NAME': 'ASPNETTrial',
+        'USER': 'David_Huang',
+        'PASSWORD': 'dhly1518194984@',
+        'HOST': 'localhost\DAVIDSQL',
+        'PORT': '',
 
         'OPTIONS': {
-           'driver': 'ODBC Driver 13 for SQL Server',
+            'driver': 'ODBC Driver 13 for SQL Server',
            #'use_mars': True,
            #'extra_params': '',
            #'provider': 'SQLNCLI11',

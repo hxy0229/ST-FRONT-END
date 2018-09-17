@@ -4,7 +4,13 @@ import pyodbc
 
 def home(request):
     if request.user.is_authenticated:
+        return render(request, 'home.html')
 
+    else:
+        return render(request, 'out.html')
+
+
+'''
         crsr = pyodbc.connect(driver = "ODBC Driver 13 for SQL Server", server = "192.168.43.95,49172",
                               database = 'Singtel', uid = "Singtel-IIP", pwd = "IIP@Singtel123", autocommit = True)
 
@@ -24,8 +30,6 @@ def home(request):
             print("THIS COMBINATION IS GOOD!")
         else:
             print("BAD COMBINATION!")
-        return render(request, 'home.html')
+'''
 
-    else:
-        return render(request, 'out.html')
 

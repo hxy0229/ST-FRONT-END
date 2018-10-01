@@ -69,7 +69,7 @@ WHERE [TABLE_NAME] LIKE \'%s\'
             'datetimeoffset': ado_consts.adDBTimeStamp,
             'decimal': ado_consts.adDecimal,
             'float': ado_consts.adDouble,
-            'image': ado_consts.adVarBinary,
+            'img': ado_consts.adVarBinary,
             'int': ado_consts.adInteger,
             'money': MONEY_FIELD_MARKER,
             'numeric': ado_consts.adNumeric,

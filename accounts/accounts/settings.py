@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'accounts.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'ASPNETTrial',
+        'NAME': 'Singtel',
         'USER': 'David_Huang',
         'PASSWORD': 'dhly1518194984@',
         'HOST': 'localhost\DAVIDSQL',

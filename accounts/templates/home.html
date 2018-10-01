@@ -3,50 +3,56 @@
 <html lang="en">
 
 <head>
-	 <title>Django Auth Tutorial</title>
-	<meta charset="utf-8" />
-	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'personal/css/bootstrap.min.css' %}" type = "text/css"/>
-	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Django Auth Tutorial</title>
+    <meta charset="utf-8" /> {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'personal/css/bootstrap.min.css' %}" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<style type="text/css">
-		html,
-		body {
-		  height:100%
-		}
-	</style>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%
+        }
+    </style>
 </head>
 
 <body class="body" style="background-color:#f6f6f6">
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-  <div class="smartListShelf clear">
+    Hi {{ user.username }}!
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    <div class="smartListShelf clear">
 
-<div id="item1" class="smartListItem left">
-<div class="deckItemTitle"><a href="/input/" title="Search Directory of Registered Entities">
-Data input</a>
-<div class="liner"></div></div>
-<div class="deckIcon"><a href="/input/" title="Search Directory of Registered Entities">
-<img src="{% static 'img/input.png' %}" class="responsive-img" style='max-height:100px;' alt="face"></a></div>
-</div>
-<div id="item2" class="smartListItem left">
-<div class="deckItemTitle"><a href="/search/" title="Prepare Financial Statements using BizFinx">
-Data Search</a>
-<div class="liner"></div></div>
-<div class="deckIcon"><a href="/search/" title="Prepare Financial Statements using BizFinx">
-<img src="{% static '/img/search.jpg' %}" alt="Prepare Financial Statements using BizFinx"></a></div>
-</div>
-<div id="item3" class="smartListItem left">
-<div class="deckItemTitle"><a href="/analysis/" title="Find SSIC Code for Business Activities">
-Analysis result</a>
-<div class="liner"></div></div>
-<div class="deckIcon"><a href="/analysis/" title="Find SSIC Code for Business Activities">
-<img src="{% static 'img/analysis.png' %}" alt="Find SSIC Code for Business Activities"></a></div>
-</div>
-</div>
-
+        <div id="item1" class="smartListItem left">
+            <div class="deckItemTitle">
+				<a href="/input/" title="Search Directory of Registered Entities">Data input</a>
+                <div class="liner"></div>
+            </div>
+            <div class="deckIcon">
+                <a href="/input/" title="Search Directory of Registered Entities">
+                    <img src="{% static 'img/input.png' %}" class="responsive-img" style='max-height:100px;' alt="face"></a>
+            </div>
+        </div>
+        <div id="item2" class="smartListItem left">
+            <div class="deckItemTitle">
+				<a href="/search/" title="Prepare Financial Statements using BizFinx">Data Search</a>
+                <div class="liner"></div>
+            </div>
+            <div class="deckIcon">
+                <a href="/search/" title="Prepare Financial Statements using BizFinx">
+                    <img src="{% static '/img/search.jpg' %}" alt="Prepare Financial Statements using BizFinx"></a>
+            </div>
+        </div>
+        <div id="item3" class="smartListItem left">
+            <div class="deckItemTitle">
+				<a href="/analysis/" title="Find SSIC Code for Business Activities">Analysis result</a>
+                <div class="liner"></div>
+            </div>
+            <div class="deckIcon">
+                <a href="/analysis/" title="Find SSIC Code for Business Activities">
+                    <img src="{% static 'img/analysis.png' %}" alt="Find SSIC Code for Business Activities"></a>
+            </div>
+        </div>
+    </div>
 
 </body>
 
 </html>
-

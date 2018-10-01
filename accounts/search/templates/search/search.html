@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="//campus.alibaba.com/assets/competition/css/select2.css" type="text/css">
     <link rel="stylesheet" href="https://s.tbcdn.cn/g/alinw/dialog/2.0.7/dialog.css">
     <link rel="stylesheet" href="//campus.alibaba.com/assets/data/resumeEdit.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'input/customerNameSearch.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'search/dataSearch.css' %}">
 
     <script src="//campus.alibaba.com/assets/lib/pinyin.js"></script>
     <script src='//campus.alibaba.com/assets/campus/js/dataEn.js'></script>
@@ -24,9 +24,9 @@
     <!-- <script src="//campus.alibaba.com/assets/lib/select2.0.js"></script> -->
 <style>
     html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+     p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, kbd, q, s, samp,
+    del, dfn, em, ins, kbd, q, s, samp,
     small, strike, strong, sub, sup, tt, var,
     b, u, i, center,
     dl, dt, dd, ol, ul, li,
@@ -171,12 +171,7 @@
         overflow-y: auto;
     }
 
-    .select-city, .select-prov, .select-country {
-        padding: 10px 3px;
-        padding-top: 0;
-        border-bottom: #ECECEC 1px dotted;
-        margin-bottom: 10px;
-    }
+
 
     .select-city li, .select-prov li, .select-country li {
         float: left;
@@ -474,62 +469,13 @@
         opacity: 1;
     }
 
-    .uploadFile{
-        position:absolute;
-        margin-top:20px;
-        right:120px;
-        width:150px;
-        color:#ffffff;
-        background-color:#1a75ff;
-        font-size: 100%;
-        font-family: PingFangSC-Medium !important;
-    }
-
-    /*底部*/
-    .footerWrap {
-        height: 104px;
-        background: #414954;
-        /*position: fixed;*/
-        bottom: 0;
-        width: 100%;
-        /*z-index: 1;*/
-        line-height: 16px;
-    }
-    .footerText {
-        margin-right: 0px;
-        margin-left: 0px;
-        font-family: PingFangSC-Medium;
-        font-size: 13px;
-        color: #FFFFFF;
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 15px;
-        display: inline-block;
-    }
-    .linkinHref {
-        font-size: 13px;
-        background: #506E99;
-        color: #fff !important;
-        display: inline-block;
-        margin-left: 3px;
-        width: 15px;
-        height: 15px;
-        text-decoration: none;
-    }
-    .footerTextWrap {
-        text-align: center;
-    }
-
-
-
-
 </style>
 </head>
 
 <body>
     <div class="bannerWrap">
         <div class="bannerLeft">
-            <a class="inputPageTitle">Data Analysis Page </a>
+            <a class="inputPageTitle">Data Search Page </a>
         </div>
         <div class="bannerRight">
             <ul class="mainMenu">
@@ -569,15 +515,46 @@
         </div>
     </div>
 
-    <div class="searchForCustomerInfo" style="">
+    <div id="searchPanelWrapper">
+        <div id="customerSearchPanel">
+            <img src="{% static 'search/img/customerIcon.png' %}">
+            <h1>Customer Search</h1>
+            <div class="searchBarWrapper">
+                <input type="text" placeholder="Search by UEN(recommended)" class="inputBox">
+                <button type="submit" class="searchButton">Search</button>
+            </div>
+            <div class="searchBarWrapper">
+                <input type="text" placeholder="Search by customer name" class="inputBox">
+                <button type="submit" class="searchButton">Search</button>
+            </div>
+        </div>
 
+       <div id="productSearchPanel">
+           <img src="{% static 'search/img/productIcon.png' %}">
+           <h1>Product Search</h1>
+           <div class="searchBarWrapper">
+                <select class="inputBox">
+                    <option value="ACCOMMODATION AND FOOD SERVICE ACTIVITIES">Application Defense</option>
+                    <option value="Unicareer">Cloud Security</option>
+                    <option value="Unicareer">Consulting Services</option>
+                    <option value="Unicareer">Content Defense</option>
+                    <option value="Unicareer">CSI</option>
+                    <option value="Unicareer">Data Centre Security</option>
+                    <option value="Unicareer">Endpoint Defense</option>
+                    <option value="Unicareer">Endpoint Security</option>
+                    <option value="Unicareer">MSS Others/option>
+                    <option value="Unicareer">Network Defense</option>
+                    <option value="Unicareer">Operational Technology Security</option>
+                    <option value="Unicareer">OT Security</option>
+                    <option value="Unicareer">PS Others</option>
+                    <option value="Unicareer">PS Others (Bespoke)</option>
+                    <option value="Unicareer">TS Others</option>
+                    <option value="Unicareer">TS Others (Bespoke)</option>
+                </select>
+                <button type="submit" class="searchButton">Search</button>
+            </div>
+       </div>
     </div>
-
-    <div class="SearchForProductInfo">
-
-    </div>
-
-
 
 </body>
 

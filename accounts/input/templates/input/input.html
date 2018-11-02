@@ -1,27 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load staticfiles %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="data-spm" content="a1z3e1">
-    <title>application</title>
-    <link rel="shortcut icon" type="image/x-icon" href="https://i.alipayobjects.com/i/localhost/ico/201404/2WPSMmbEyj.ico"/>
+    <title>Data Input</title>
     <link rel="stylesheet" href="//g.alicdn.com/alinw/kuma/4.0.1/kuma.css">
-    <!-- <link rel="stylesheet" href="https://g.alicdn.com/alinw/select2/3.4.9/select2.css"> -->
-    <link rel="stylesheet" href="https://s.tbcdn.cn/g/platform/common/s/1.0/global/global.css">
-    <link rel="stylesheet" href="https://s.tbcdn.cn/g/alinw/kuma-base/2.0.0/kuma-base.css">
-    <link rel="stylesheet" href="https://s.tbcdn.cn/g/alinw/kuma-select/2.0.1/kuma-select.css">
-    <link rel="stylesheet" href="//campus.alibaba.com/assets/competition/css/select2.css" type="text/css">
-    <link rel="stylesheet" href="https://s.tbcdn.cn/g/alinw/dialog/2.0.7/dialog.css">
-    <link rel="stylesheet" href="//campus.alibaba.com/assets/data/resumeEdit.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'input/customerNameSearch.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'input/modal.css' %}">
 
-    <script src="//campus.alibaba.com/assets/lib/pinyin.js"></script>
-    <script src='//campus.alibaba.com/assets/campus/js/dataEn.js'></script>
-    <script src="//campus.alibaba.com/assets/data/jquery.js"></script>
-    <!--script src="//campus.alibaba.com/assets/lib/jquery.modal.js"></script>-->
-    <!-- <script src="//campus.alibaba.com/assets/lib/select2.0.js"></script> -->
 <style>
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -45,6 +30,8 @@
         font-family: PingFangSC-Medium !important;
     }
 
+
+
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure,
     footer, header, hgroup, menu, nav, section {
@@ -66,7 +53,8 @@
 
     .formField .kuma-label {
         padding-right: 10px;
-        width: 170px;
+        display:block;
+        width: 270px;
         font-family: PingFangSC-Medium !important;
         font-size: 13px;
         color: rgba(0,0,0,0.43);
@@ -79,10 +67,6 @@
         line-height: 25px;
         padding: 5px 10px;
         margin-top: -6px;
-    }
-
-    .select2-container {
-        height: 37px !important;
     }
 
     .areaTitle {
@@ -105,145 +89,18 @@
         margin-left: 10px;
     }
 
-    .openQues {
-        color: rgba(0,0,0,0.6);
-    }
-
-    .openQues span{
-        float: left;
-    }
-
-    .openQuesText {
-        width: 850px;
-    }
-
-    .openQues textarea {
-        margin-left: 70px;
-    }
-
-    .timeTest,.J_DeleteLanguageSkill, .J_DeleteContest {
-        position: relative;
-        top: -10px;
-        outline: none;
-    }
-
-    .J_DeleteEdu {
-        outline: none;
-    }
-
-    .timeTest{
-        color:rgba(0,0,0,0.6);
-    }
-
-    .addLanguage {
-        margin-left: 170px;
-        margin-bottom: 20px;
-    }
-
-    .addContest {
-        margin-left: 170px;
-        margin-bottom: 25px;
-        position: relative;
-        top: -13px;
-    }
-
-    .addEdu {
+    .addProduct {
         margin-bottom: 35px;
         position: relative;
         top: -6px;
-    }
-
-    .eduWrapIn {
-        margin-bottom: 20px;
-        /*border-bottom: 1px dashed #ccc;*/
-    }
-
-    .deleteEduWrap {
-        width: 800px;
-        display: block;
-        margin-bottom: 20px;
-        text-align: right;
-    }
-
-    .pop-box-sy-bd {
-        background-color: #FFF;
-        padding: 8px;
-        overflow-y: auto;
-    }
-
-    .select-city, .select-prov, .select-country {
-        padding: 10px 3px;
-        padding-top: 0;
-        border-bottom: #ECECEC 1px dotted;
-        margin-bottom: 10px;
-    }
-
-    .select-city li, .select-prov li, .select-country li {
-        float: left;
-        padding: 2px 5px;
-        line-height: 120%;
-        display: inline;
-        cursor: pointer;
-        color: #288df0;
-        vertical-align: top;
-    }
-
-    .prov-select li, .select-prov li, .select-city li {
-        width: 22%;
-    }
-
-    .clr {
-        zoom: 1;
-    }
-
-    .clr:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        clear: both;
     }
 
     .kuma-form-required {
         font-weight: normal;
     }
 
-
-
     .kuma-tag {
         margin-right: 10px !important;
-    }
-
-    .ipt-phone {
-        width: 265px !important;
-    }
-
-    .contestWrap {
-        margin-left: 70px;
-        margin-top: 10px;
-    }
-
-    .contestWrap:first-child {
-        margin-left: 0;
-        margin-top: 0;
-    }
-
-    .languageWrap {
-        margin-top: 10px;
-    }
-
-    .languageWrap:first-child {
-        margin-top: 0;
-    }
-
-    .competeOtherName {
-        width: 180px !important;
-        height: 18px !important;
-        position: relative !important;
-        top: -8px !important;
-    }
-
-    select.competeAwards {
-        width: 0 !important;
     }
 
     textarea {
@@ -252,91 +109,16 @@
         color: rgba(0,0,0,0.7);
     }
 
-    .workExperience, .papers {
-        margin-left: 0;
-        margin-top: 0;
-    }
-    .J_UploadQueue {
-        margin-top: 10px;
-        margin-left: 68px;
-    }
-
-    .markedWords {
-        color: #999;
-    }
-    .kuma-dialog-confirm .kuma-button {
-        color: #fff;
-    }
     .kuma-form-explain {
         margin-left: 70px;
-    }
-    .successDialogCon {
-        height: 60px;
-        line-height: 80px;
-    }
-    .errDialogCon {
-        height: 80px;
-        line-height: 80px;
-        margin-left: 30px;
-    }
-
-    .overlay { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; opacity: .3; filter: alpha(opacity=30); z-index: 99;}
-    .eduLine {
-        width: 800px;
-        height: 1px;
-        border-bottom: 1px dashed #ccc;
-        margin-left: 30px;
-        margin-bottom: 15px;
-    }
-    .eligibilityItem .kuma-form-text {
-        position: relative;
-        top: -5px;
-        font-size: 15px;
-        color: rgba(0,0,0,0.6);
-    }
-    .eligibilityItem .kuma-form-other {
-        position: relative;
-        top: -5px;
     }
 
     .kumaOther {
         position: relative;
         top: -10px;
     }
-
-    .schoolBtn {
-        outline: none;
-    }
-
-    .lawArticles .kuma-label {
-        width: 100px;
-    }
-
-    .lawText {
-        font-size: 13px;
-        color: #acafac;
-    }
-
-    .lawArticles .kuma-form-text {
-        font-size: 13px;
-        color: rgba(0,0,0,0.6);
-    }
-
     .uploadedWrap a {
         font-size: 13px;
-    }
-
-    .filter-item {
-        padding-bottom: 5px;
-    }
-
-    .filter-item .kuma-form-explain {
-        position: relative;
-        top: -10px;
-    }
-
-    .kuma-filter {
-        margin-left: 70px;
     }
 
     .areaTitleP {
@@ -521,278 +303,293 @@
     }
 
 
-
-
 </style>
 </head>
 
 <body>
+
+    <div id="searchByCustomerNameModal" class="modal">
+            <div class="modal-header">
+                <h1 class="modal-title">Customer Search(by customer name)</h1>
+                <span id="searchByCustomerNameModalCloseBtn" class="closeModalButton">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="get">
+                   <input class="customerSearchInputBox" id="customerNameSearchInputBox" name="customerSearchInputBox">
+                   <button id="customerNameSearchingBtn" class="kuma-button kuma-button-lwhite" name="customerNameSearchingBtn" onclick="searchCustomerByName()">Search</button>
+                </form>
+                <ul id="customerNameSearchResult">
+                    <li id="firstCustomerName">Hi!</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button id="confirmCustomerNameSearch" class="kuma-button kuma-button-lblue confirmSearchBtn ">Confirm</button>
+            </div>
+    </div>
+
+    <div id="searchByUENModal" class="modal">
+            <div class="modal-header">
+                <h1 class="modal-title">Customer Search(by UEN)</h1>
+                <span id="searchByUENModalCloseBtn" class="closeModalButton">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="get">
+                   <input class="customerSearchInputBox" id="UENSearchInputBox" name="customerSearchInputBox">
+                   <button id="UENSearchingBtn" class="kuma-button kuma-button-lwhite" name="customerNameSearchingBtn" onclick="searchCustomerByUEN()">Search</button>
+                </form>
+                <ul id="UENSearchResult">
+
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button id="confirmUENSearch" class="confirmSearchBtn kuma-button kuma-button-lblue">Confirm</button>
+            </div>
+    </div>
+
+
     <div class="bannerWrap">
         <div class="bannerLeft">
-            <a class="inputPageTitle">Data Input Page </a>
+            <a class="inputPageTitle">Data Input</a>
         </div>
         <div class="bannerRight">
             <ul class="mainMenu">
                 <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/homepage?__id=index" title="Home">
+                    <a href='' title="Home">
                         <span>Home</span>
                     </a>
                 </li>
                 <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/homepage?__id=positionList" title="Jobs">
-                        <span>Jobs</span>
-                    </a>
-                </li>
-                <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/homepage?__id=internships" title="Internships">
-                        <span>Internships</span>
-                    </a>
-                </li>
-                <li class="mainMenuItem overseasTalentPlan" >
-                    <a href="//campus.alibaba.com/en/talentPlan?" title="Talent Program">
-                        <span>Talent Program</span>
-                    </a>
-                    <ul class="talentPlanSelect">
-                    </ul>
-                </li>
-                <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/noticeList.htm" title="Announcement">
-                        <span>Announcement</span>
-                    </a>
-                </li>
-                <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/homepage?__id=companyIntroduce" title="About Alibaba">
+                    <a href="https://www.singtel.com/" title="About Alibaba">
                         <span>About Singtel</span>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="breadCrumbsWrap"></div>
 
     <button class="uploadFile kuma-button kuma-button-lblue">Input Data (.xls)</button>
 
-    <form class="kuma-form form" id="form">
-        <fieldset class="formField">
-
-            <h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Customer</h2>
-            <div class="kuma-form-item position">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Customer Name
-                </label>
-                <button id="searchByCustomerNameBtn" type="button" class="kuma-button kuma-button-lwhite schoolBtn">Search</button>
-                <span style="line-height: 29px;" class="positionName"></span>
-                <input name="position" class="positionInput" type="hidden" value=''>
-            </div>
-
-            <div id="searchByCustomerNameModal" class="modal" style="display:none">
-                 <div class="modal-content">
-                      <div class="modal-header">
-                          <span id="closeModalBtn" class="close">&times;</span>
-                          <h2>Modal Header</h2>
-                      </div>
-                     <div class="modal-body">
-                         <label class="kuma-label">Customer Name</label>
-                         <input id="customerNameSearchingBox" class="input" value=''>
-                         <button id="customerNameSearchingBtn" type="button" class="kuma-button kuma-button-lwhite">
-                             Search
-                         </button>
-                     </div>
-                 </div>
-            </div>
-
-            <div class="kuma-form-item position">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>UEN
-                </label>
-                <button type="button" class="kuma-button kuma-button-lwhite schoolBtn">Search</button>
-                <span style="line-height: 29px;" class="positionName"></span>
-                <input name="position" class="positionInput" type="hidden" value=''>
-            </div>
-
-            <div class="kuma-form-item" data-spm-anchor-id="a1z3e1.11211817.0.i3.19ff427bTInYcA">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Customer Facing Unit
-                </label>
-                <input name="name" class="kuma-input" type="text" data-widget-cid="widget-30" data-validator-set="widget-30" data-explain="" data-spm-anchor-id="a1z3e1.11211817.0.i2.19ff427bTInYcA">
-            <div class="kuma-form-explain"> </div></div>
-
-            <div class="kuma-form-item">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Generic Industry
-                </label>
-                <select name="informationSource" id="J_Select1" style="width:400px">
-                    <option value="ACCOMMODATION AND FOOD SERVICE ACTIVITIES">ACCOMMODATION AND FOOD SERVICE ACTIVITIES</option>
-                    <option value="Unicareer">ACTIVITIES AUXILIARY TO FINANCIAL SERVICE AND INSURANCE ACTIVITIES</option>
-                    <option value="Unicareer">ACTIVITIES OF EXTRA-TERRITORIAL ORGANISATIONS AND BODIES</option>
-                    <option value="Unicareer">ACTIVITIES OF HEAD OFFICES; MANAGEMENT CONSULTANCY ACTIVITIES</option>
-                    <option value="Unicareer">ACTIVITIES OF HOUSEHOLDS AS EMPLOYERS OF DOMESTIC PERSONNEL</option>
-                    <option value="Unicareer">ADMINISTRATIVE AND SUPPORT SERVICE ACTIVITIES</option>
-                    <option value="Unicareer">ADVERTISING AND MARKET RESEARCH</option>
-                    <option value="Unicareer">AGRICULTURE AND FISHING</option>
-                    <option value="Unicareer">ARTS ENTERTAINMENT AND RECREATION</option>
-                    <option value="Unicareer">COMPUTER PROGRAMMING CONSULTANCY AND RELATED ACTIVITIES</option>
-                    <option value="Unicareer">CONSTRUCTION</option>
-                    <option value="Unicareer">EDUCATION</option>
-                    <option value="Unicareer">ELECTRICITY GAS STEAM AND AIR-CONDITIONING SUPPLY</option>
-                    <option value="Unicareer">FINANCIAL AND INSURANCE ACTIVITIES</option>
-                    <option value="Unicareer">FINANCIAL SERVICE ACTIVITIES  EXCEPT INSURANCE AND PENSION FUNDING</option>
-                    <option value="Unicareer">HEALTH AND SOCIAL SERVICES</option>
-                    <option value="Unicareer">INFORMATION AND COMMUNICATIONS</option>
-                    <option value="Unicareer">MANUFACTURE OF COMPUTER  ELECTRONIC AND OPTICAL PRODUCTS</option>
-                    <option value="Unicareer">MANUFACTURE OF MACHINERY AND EQUIPMENT</option>
-                    <option value="Unicareer">MANUFACTURING</option>
-                    <option value="Unicareer">MINING AND QUARRYING</option>
-                    <option value="Unicareer">OFFICE ADMINISTRATIVE  OFFICE SUPPORT AND OTHER BUSINESS SUPPORT ACTIVITIES</option>
-                    <option value="Unicareer">OTHER PERSONAL SERVICE ACTIVITIES</option>
-                    <option value="Unicareer">OTHER SERVICE ACTIVITIES</option>
-                    <option value="Unicareer">POSTAL AND COURIER ACTIVITIES</option>
-                    <option value="Unicareer">PROFESSIONAL SCIENTIFIC AND TECHNICAL ACTIVITIES</option>
-                    <option value="Unicareer">PUBLIC ADMINISTRATION AND DEFENCE</option>
-                    <option value="Unicareer">REAL ESTATE ACTIVITIES</option>
-                    <option value="Unicareer">RETAIL TRADE</option>
-                    <option value="Unicareer">TRANSPORTATION AND STORAGE</option>
-                    <option value="Unicareer">WAREHOUSING AND SUPPORT ACTIVITIES FOR TRANSPORTATION</option>
-                    <option value="Unicareer">WATER SUPPLY; SEWERAGE  WASTE MANAGEMENT AND REMEDIATION ACTIVITIES</option>
-                    <option value="Unicareer">WHOLESALE AND RETAIL TRADE</option>
-                    <option value="Career Center Website">WHOLESALE TRADE</option>
-                    <option value="Others">Others</option>
-                </select>
-                <a id="searchForIndustry" href="https://tinyurl.com/y88ekzjk">Not so sure?</a>
-            </div>
-
-            <h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Deal Information</h2>
-
-            <div class="kuma-form-item">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Generic Industry
-                </label>
-                <select name="informationSource" id="J_Select3" style="width:150px">
-                    <option value="Others">Upgrade</option>
-                    <option value="Others">Downgrade</option>
-                    <option value="Others">New</option>
-                    <option value="Others">Win-back</option>
-                    <option value="Others">Termination</option>
-                    <option value="Others">Renewal</option>
-                    <option value="Others">Others</option>
-                </select>
-            </div>
-
-            <div class="kuma-form-item">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Deal Number
-                </label>
-                <input name="name" class="kuma-input" type="text">
-            </div>
-
-             <div class="kuma-form-item eligibilityItem">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Contract Mode
-                </label>
-                <label class="kuma-form-text">
-                    <input name="eligibility" class="kuma-checkbox" type="radio" value="Y"> <s></s>
-                    OTC
-                </label>
-                <label class="kuma-form-text" style="margin-left: 10px;">
-                    <input name="eligibility" class="kuma-checkbox" type="radio" value="N"> <s></s>
-                    MRC
-                </label>
-             </div>
-
-
-            <div class="kuma-form-item">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Total Contract Value
-                </label>
-                <input name="email" class="kuma-input" type="text">
+    <form class="kuma-form form" id="form" action="/input/" method="post">
+        {% csrf_token %}
+        <h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Customer</h2>
+        <div class="kuma-form-item position">
+            <label class="kuma-label">Customer Name</label>
+            <!--button id="searchByCustomerNameBtn" type="button" class="kuma-button kuma-button-lwhite schoolBtn">Search</button-->
+            {{form.customer_name}}
+            <span style="line-height: 39px;" class="positionName"></span>
+                <!--input name="position" class="positionInput" type="hidden" value=''-->
             </div>
 
 
-
-            <h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Product Information</h2>
-            <div class="eduWrap"></div>
-
-            <div class="kuma-form-item">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>Product Category
-                </label>
-                <select name="informationSource" id="J_Select2" style="width:180px">
-                    <option value="ACCOMMODATION AND FOOD SERVICE ACTIVITIES">Application Defense</option>
-                    <option value="Unicareer">Cloud Security</option>
-                    <option value="Unicareer">Consulting Services</option>
-                    <option value="Unicareer">Content Defense</option>
-                    <option value="Unicareer">CSI</option>
-                    <option value="Unicareer">Data Centre Security</option>
-                    <option value="Unicareer">Endpoint Defense</option>
-                    <option value="Unicareer">Endpoint Security</option>
-                    <option value="Unicareer">MSS Others/option>
-                    <option value="Unicareer">Network Defense</option>
-                    <option value="Unicareer">Operational Technology Security</option>
-                    <option value="Unicareer">OT Security</option>
-                    <option value="Unicareer">PS Others</option>
-                    <option value="Unicareer">PS Others (Bespoke)</option>
-                    <option value="Unicareer">TS Others</option>
-                    <option value="Unicareer">TS Others (Bespoke)</option>
-                </select>
-                <a id="searchByPIC" href="https://tinyurl.com/y88ekzjk">Want to search by PIC?</a>
-            </div>
+        <div class="kuma-form-item position">
+    <label class="kuma-label">
+        <span class="kuma-form-required">*</span>UEN
+    </label>
+    <!--button id="searchByUENBtn"type="button" class="kuma-button kuma-button-lwhite schoolBtn">Search</button-->
+    {{form.uen}}
+    <span style="line-height: 29px;" class="positionName"></span>
+    <!--input name="position" class="positionInput" type="hidden" value=''-->
+</div>
 
 
-            <div class="kuma-form-item">
-                <label class="kuma-label">
-                    <span class="kuma-form-required">*</span>RFS Month
-                </label>
-                <select name="graduateMonth" class="graduateMonth" style="width: 100px" data-type="Require" errorMsg="请选择开始时间">
-                 <option value="">MM</option>
-                    <option value="1">01</option>
-                    <option value="2">02</option>
-                    <option value="3">03</option>
-                    <option value="4">04</option>
-                    <option value="5">05</option>
-                    <option value="6">06</option>
-                    <option value="7">07</option>
-                    <option value="8">08</option>
-                    <option value="9">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-                <select name="graduateYear" class="graduateYear" style="width: 100px; margin-right: 20px;" data-type="Require" errorMsg="请选择开始时间">
-                    <option value="">YYYY</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2022">2022</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2025">2025</option>
-                </select>
-            </div>
+        <div class="kuma-form-item" data-spm-anchor-id="a1z3e1.11211817.0.i3.19ff427bTInYcA">
+    <label class="kuma-label">Customer Facing Unit</label>
+            <select name="cfu">
+                {% for choice in form.cfu.field.choices %}
+                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                {% endfor %}
+            </select>
+    <span style="line-height: 39px;" class="positionName"></span>
+</div>
 
-            <button type="button" class="kuma-button kuma-button-lwhite addEdu">Add More</button>
+<div class="kuma-form-item">
+    <label class="kuma-label">Generic Industry</label>
+    <!--select name="informationSource" id="J_Select1" style="width:400px">
+        <option value="ACCOMMODATION AND FOOD SERVICE ACTIVITIES">ACCOMMODATION AND FOOD SERVICE ACTIVITIES</option>
+        <option value="Unicareer">ACTIVITIES AUXILIARY TO FINANCIAL SERVICE AND INSURANCE ACTIVITIES</option>
+        <option value="Unicareer">ACTIVITIES OF EXTRA-TERRITORIAL ORGANISATIONS AND BODIES</option>
+        <option value="Unicareer">ACTIVITIES OF HEAD OFFICES; MANAGEMENT CONSULTANCY ACTIVITIES</option>
+        <option value="Unicareer">ACTIVITIES OF HOUSEHOLDS AS EMPLOYERS OF DOMESTIC PERSONNEL</option>
+        <option value="Unicareer">ADMINISTRATIVE AND SUPPORT SERVICE ACTIVITIES</option>
+        <option value="Unicareer">ADVERTISING AND MARKET RESEARCH</option>
+        <option value="Unicareer">AGRICULTURE AND FISHING</option>
+        <option value="Unicareer">ARTS ENTERTAINMENT AND RECREATION</option>
+        <option value="Unicareer">COMPUTER PROGRAMMING CONSULTANCY AND RELATED ACTIVITIES</option>
+        <option value="Unicareer">CONSTRUCTION</option>
+        <option value="Unicareer">EDUCATION</option>
+        <option value="Unicareer">ELECTRICITY GAS STEAM AND AIR-CONDITIONING SUPPLY</option>
+        <option value="Unicareer">FINANCIAL AND INSURANCE ACTIVITIES</option>
+        <option value="Unicareer">FINANCIAL SERVICE ACTIVITIES  EXCEPT INSURANCE AND PENSION FUNDING</option>
+        <option value="Unicareer">HEALTH AND SOCIAL SERVICES</option>
+        <option value="Unicareer">INFORMATION AND COMMUNICATIONS</option>
+        <option value="Unicareer">MANUFACTURE OF COMPUTER  ELECTRONIC AND OPTICAL PRODUCTS</option>
+        <option value="Unicareer">MANUFACTURE OF MACHINERY AND EQUIPMENT</option>
+        <option value="Unicareer">MANUFACTURING</option>
+        <option value="Unicareer">MINING AND QUARRYING</option>
+        <option value="Unicareer">OFFICE ADMINISTRATIVE  OFFICE SUPPORT AND OTHER BUSINESS SUPPORT ACTIVITIES</option>
+        <option value="Unicareer">OTHER PERSONAL SERVICE ACTIVITIES</option>
+        <option value="Unicareer">OTHER SERVICE ACTIVITIES</option>
+        <option value="Unicareer">POSTAL AND COURIER ACTIVITIES</option>
+        <option value="Unicareer">PROFESSIONAL SCIENTIFIC AND TECHNICAL ACTIVITIES</option>
+        <option value="Unicareer">PUBLIC ADMINISTRATION AND DEFENCE</option>
+        <option value="Unicareer">REAL ESTATE ACTIVITIES</option>
+        <option value="Unicareer">RETAIL TRADE</option>
+        <option value="Unicareer">TRANSPORTATION AND STORAGE</option>
+        <option value="Unicareer">WAREHOUSING AND SUPPORT ACTIVITIES FOR TRANSPORTATION</option>
+        <option value="Unicareer">WATER SUPPLY; SEWERAGE  WASTE MANAGEMENT AND REMEDIATION ACTIVITIES</option>
+        <option value="Unicareer">WHOLESALE AND RETAIL TRADE</option>
+        <option value="Career Center Website">WHOLESALE TRADE</option>
+        <option value="Others">Others</option>
+    </select-->
+    <select name="generic_industry">
+        {% for choice in form.generic_industry.field.choices %}
+        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+        {% endfor %}
+    </select>
+    <a id="searchForIndustry" href="https://tinyurl.com/y88ekzjk">Not so sure?</a>
+    <span style="line-height: 39px;" class="positionName"></span>
+</div>
 
-            <div class="kuma-form-item">
-                <button type="button" class="kuma-button kuma-button-lblue submit">Submit</button>
-            </div>
 
-        </fieldset>
+<h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Deal Information</h2>
+
+<div class="kuma-form-item">
+    <label class="kuma-label">
+        <span class="kuma-form-required">*</span>Deal Type
+    </label>
+    <!--select name="informationSource" id="J_Select3" style="width:150px">
+        <option value="Others">Upgrade</option>
+        <option value="Others">Downgrade</option>
+        <option value="Others">New</option>
+        <option value="Others">Win-back</option>
+        <option value="Others">Termination</option>
+        <option value="Others">Renewal</option>
+        <option value="Others">Others</option>
+    </select-->
+    {{form.deal_type}}
+</div>
+
+<div class="kuma-form-item">
+    <label class="kuma-label">
+        <span class="kuma-form-required">*</span>Deal Number
+    </label>
+    <!--input name="name" class="kuma-input" type="text"-->
+    {{form.deal_no}}
+</div>
+
+ <div class="kuma-form-item">
+    <label class="kuma-label">
+        <span class="kuma-form-required">*</span>Contract Mode
+    </label>
+    <!--label class="kuma-form-text">
+        <input name="eligibility" class="kuma-checkbox" type="radio" value="Y"> <s></s>
+        OTC
+    </label>
+    <label class="kuma-form-text" style="margin-left: 10px;">
+        <input name="eligibility" class="kuma-checkbox" type="radio" value="N"> <s></s>
+        MRC
+    </label-->
+     <select name="contract_mode">
+        {% for choice in form.contract_mode.field.choices %}
+        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+        {% endfor %}
+    </select>
+ </div>
+
+
+<div class="kuma-form-item">
+    <label class="kuma-label">
+        <span class="kuma-form-required">*</span>Total Contract Value
+    </label>
+    <!--input name="email" class="kuma-input" type="text"-->
+    {{form.total_contract_value}}
+</div>
+
+
+
+<h2 class="areaTitle" style="font-size:16px; font-weight:bold;">Product Information</h2>
+<div class="eduWrap"></div>
+
+<div class="kuma-form-item">
+    <label class="kuma-label">
+        <span class="kuma-form-required">*</span>Product Category
+    </label>
+    <!--select name="informationSource" id="J_Select2" style="width:180px">
+        <option value="ACCOMMODATION AND FOOD SERVICE ACTIVITIES">Application Defense</option>
+        <option value="Unicareer">Cloud Security</option>
+        <option value="Unicareer">Consulting Services</option>
+        <option value="Unicareer">Content Defense</option>
+        <option value="Unicareer">CSI</option>
+        <option value="Unicareer">Data Centre Security</option>
+        <option value="Unicareer">Endpoint Defense</option>
+        <option value="Unicareer">Endpoint Security</option>
+        <option value="Unicareer">MSS Others/option>
+        <option value="Unicareer">Network Defense</option>
+        <option value="Unicareer">Operational Technology Security</option>
+        <option value="Unicareer">OT Security</option>
+        <option value="Unicareer">PS Others</option>
+        <option value="Unicareer">PS Others (Bespoke)</option>
+        <option value="Unicareer">TS Others</option>
+        <option value="Unicareer">TS Others (Bespoke)</option>
+    </select-->
+    <select name="product_category">
+        {% for choice in form.product_category.field.choices %}
+        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+        {% endfor %}
+    </select>
+    <!--a id="searchByPIC" href="https://tinyurl.com/y88ekzjk">Want to search by PIC?</a-->
+</div>
+
+
+<div class="kuma-form-item">
+    <label class="kuma-label">
+        <span class="kuma-form-required">*</span>RFS Date
+    </label>
+    <!--select name="graduateMonth" class="graduateMonth" style="width: 100px" data-type="Require" errorMsg="请选择开始时间">
+     <option value="">MM</option>
+        <option value="1">01</option>
+        <option value="2">02</option>
+        <option value="3">03</option>
+        <option value="4">04</option>
+        <option value="5">05</option>
+        <option value="6">06</option>
+        <option value="7">07</option>
+        <option value="8">08</option>
+        <option value="9">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <select name="graduateYear" class="graduateYear" style="width: 100px; margin-right: 20px;" data-type="Require" errorMsg="请选择开始时间">
+        <option value="">YYYY</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+    </select-->
+    {{form.rfs_date}}
+    <span>Format:(YYYY-MM-DD)</span>
+</div>
+
+<button type="button" class="kuma-button kuma-button-lwhite addProduct">Add More</button>
+        <div class="kuma-form-item">
+            <input type="submit" value="Submit" class="kuma-button kuma-button-lblue submit"></input>
+        </div>
     </form>
 
-    <div class="footerWrap">
-        <div class="footerTextWrap">
-            <div class="footerText" title="">
-                Contact Us | If you have any questions, feel free to email
-                <a href="javascript:;">campus@alibaba-inc.com</a>
-                . We'd be glad to assist you! Follow Alibaba Group on:
-            </div>
-
-            <a class="linkinHref" title="" href="https://www.linkedin.com/company/3839570/">in</a>
-        </div>
-        <p style="text-align:  center;font-family: PingFangSC-Medium;font-size: 13px;color: #FFFFFF;line-height: 20px;margin-top: 15px;">Copyright Notice © 1999-2018 Alibaba Group Holding Limited and/or its affiliates and licensors. All rights reserved.</p>
-    </div>
 </body>
 
 <script src="{% static 'input/customerNameSearch.js' %}"></script>
+<script src="{% static 'input/UENSearch.js' %}"></script>
+<script src="{% static 'input/checkAndInput.js' %}"></script>
+
+<script>
+
+
+</script>
 
 </html>

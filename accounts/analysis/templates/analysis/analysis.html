@@ -3,28 +3,11 @@
 {% load staticfiles %}
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="data-spm" content="a1z3e1">
-    <title>application</title>
-    <link rel="shortcut icon" type="image/x-icon" href="https://i.alipayobjects.com/i/localhost/ico/201404/2WPSMmbEyj.ico"/>
+    <title>Data Analysis</title>
     <link rel="stylesheet" href="//g.alicdn.com/alinw/kuma/4.0.1/kuma.css">
-    <!-- <link rel="stylesheet" href="https://g.alicdn.com/alinw/select2/3.4.9/select2.css"> -->
-    <link rel="stylesheet" href="https://s.tbcdn.cn/g/platform/common/s/1.0/global/global.css">
-    <link rel="stylesheet" href="https://s.tbcdn.cn/g/alinw/kuma-base/2.0.0/kuma-base.css">
-    <link rel="stylesheet" href="https://s.tbcdn.cn/g/alinw/kuma-select/2.0.1/kuma-select.css">
-    <link rel="stylesheet" href="//campus.alibaba.com/assets/competition/css/select2.css" type="text/css">
-    <link rel="stylesheet" href="https://s.tbcdn.cn/g/alinw/dialog/2.0.7/dialog.css">
-    <link rel="stylesheet" href="//campus.alibaba.com/assets/data/resumeEdit.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'input/customerNameSearch.css' %}">
-
-    <script src="//campus.alibaba.com/assets/lib/pinyin.js"></script>
-    <script src='//campus.alibaba.com/assets/campus/js/dataEn.js'></script>
-    <script src="//campus.alibaba.com/assets/data/jquery.js"></script>
-    <!--script src="//campus.alibaba.com/assets/lib/jquery.modal.js"></script>-->
-    <!-- <script src="//campus.alibaba.com/assets/lib/select2.0.js"></script> -->
 <style>
     html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
     del, dfn, em, img, ins, kbd, q, s, samp,
     small, strike, strong, sub, sup, tt, var,
@@ -81,10 +64,6 @@
         margin-top: -6px;
     }
 
-    .select2-container {
-        height: 37px !important;
-    }
-
     .areaTitle {
         height: 45px;
     }
@@ -105,145 +84,18 @@
         margin-left: 10px;
     }
 
-    .openQues {
-        color: rgba(0,0,0,0.6);
-    }
-
-    .openQues span{
-        float: left;
-    }
-
-    .openQuesText {
-        width: 850px;
-    }
-
-    .openQues textarea {
-        margin-left: 70px;
-    }
-
-    .timeTest,.J_DeleteLanguageSkill, .J_DeleteContest {
-        position: relative;
-        top: -10px;
-        outline: none;
-    }
-
-    .J_DeleteEdu {
-        outline: none;
-    }
-
-    .timeTest{
-        color:rgba(0,0,0,0.6);
-    }
-
-    .addLanguage {
-        margin-left: 170px;
-        margin-bottom: 20px;
-    }
-
-    .addContest {
-        margin-left: 170px;
-        margin-bottom: 25px;
-        position: relative;
-        top: -13px;
-    }
-
-    .addEdu {
+    .addProduct {
         margin-bottom: 35px;
         position: relative;
         top: -6px;
-    }
-
-    .eduWrapIn {
-        margin-bottom: 20px;
-        /*border-bottom: 1px dashed #ccc;*/
-    }
-
-    .deleteEduWrap {
-        width: 800px;
-        display: block;
-        margin-bottom: 20px;
-        text-align: right;
-    }
-
-    .pop-box-sy-bd {
-        background-color: #FFF;
-        padding: 8px;
-        overflow-y: auto;
-    }
-
-    .select-city, .select-prov, .select-country {
-        padding: 10px 3px;
-        padding-top: 0;
-        border-bottom: #ECECEC 1px dotted;
-        margin-bottom: 10px;
-    }
-
-    .select-city li, .select-prov li, .select-country li {
-        float: left;
-        padding: 2px 5px;
-        line-height: 120%;
-        display: inline;
-        cursor: pointer;
-        color: #288df0;
-        vertical-align: top;
-    }
-
-    .prov-select li, .select-prov li, .select-city li {
-        width: 22%;
-    }
-
-    .clr {
-        zoom: 1;
-    }
-
-    .clr:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        clear: both;
     }
 
     .kuma-form-required {
         font-weight: normal;
     }
 
-
-
     .kuma-tag {
         margin-right: 10px !important;
-    }
-
-    .ipt-phone {
-        width: 265px !important;
-    }
-
-    .contestWrap {
-        margin-left: 70px;
-        margin-top: 10px;
-    }
-
-    .contestWrap:first-child {
-        margin-left: 0;
-        margin-top: 0;
-    }
-
-    .languageWrap {
-        margin-top: 10px;
-    }
-
-    .languageWrap:first-child {
-        margin-top: 0;
-    }
-
-    .competeOtherName {
-        width: 180px !important;
-        height: 18px !important;
-        position: relative !important;
-        top: -8px !important;
-    }
-
-    select.competeAwards {
-        width: 0 !important;
     }
 
     textarea {
@@ -252,91 +104,19 @@
         color: rgba(0,0,0,0.7);
     }
 
-    .workExperience, .papers {
-        margin-left: 0;
-        margin-top: 0;
-    }
-    .J_UploadQueue {
-        margin-top: 10px;
-        margin-left: 68px;
-    }
-
-    .markedWords {
-        color: #999;
-    }
     .kuma-dialog-confirm .kuma-button {
         color: #fff;
     }
     .kuma-form-explain {
         margin-left: 70px;
     }
-    .successDialogCon {
-        height: 60px;
-        line-height: 80px;
-    }
-    .errDialogCon {
-        height: 80px;
-        line-height: 80px;
-        margin-left: 30px;
-    }
-
-    .overlay { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; opacity: .3; filter: alpha(opacity=30); z-index: 99;}
-    .eduLine {
-        width: 800px;
-        height: 1px;
-        border-bottom: 1px dashed #ccc;
-        margin-left: 30px;
-        margin-bottom: 15px;
-    }
-    .eligibilityItem .kuma-form-text {
-        position: relative;
-        top: -5px;
-        font-size: 15px;
-        color: rgba(0,0,0,0.6);
-    }
-    .eligibilityItem .kuma-form-other {
-        position: relative;
-        top: -5px;
-    }
 
     .kumaOther {
         position: relative;
         top: -10px;
     }
-
-    .schoolBtn {
-        outline: none;
-    }
-
-    .lawArticles .kuma-label {
-        width: 100px;
-    }
-
-    .lawText {
-        font-size: 13px;
-        color: #acafac;
-    }
-
-    .lawArticles .kuma-form-text {
-        font-size: 13px;
-        color: rgba(0,0,0,0.6);
-    }
-
     .uploadedWrap a {
         font-size: 13px;
-    }
-
-    .filter-item {
-        padding-bottom: 5px;
-    }
-
-    .filter-item .kuma-form-explain {
-        position: relative;
-        top: -10px;
-    }
-
-    .kuma-filter {
-        margin-left: 70px;
     }
 
     .areaTitleP {
@@ -520,8 +300,86 @@
         text-align: center;
     }
 
+        h1{
+    text-align:center;
+    margin-top:15px;
+    font-size: 100%;
+    font: inherit;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size:30px;
+    font-weight:bold;
+}
 
+        h2{
+    text-align:center;
+    margin-top:15px;
+    font-size: 100%;
+    font: inherit;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size:15px;
+    margin-bottom:15px;
+}
 
+        h3{
+    text-align:center;
+    margin-top:15px;
+    font-size: 100%;
+    font: inherit;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size:12px;
+    border:10px;
+}
+
+#analysisPanelWrapper{
+    height:550px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    text-align: center;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-bottom:20px;
+}
+
+#findProductForCustomerPanel,#findCustomerProductMatchingPanel,#findCustomerFeatureForProductFeaturePanel{
+   float: left;
+   width: 31%;
+   height: 300px;
+   border: 5px;
+   padding: 5px;
+   margin: 5px;
+   display:inline-block;
+}
+
+.searchBoxWrapper{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.operator{
+    text-align:center;
+    margin-top:5px;
+    margin-bottom:5px;
+    font-size: 100%;
+    font: inherit;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size:20px;
+    font-weight:bold;
+
+}
+
+.searchBoxCombination .searchButton{
+    float: left;
+   border: 5px;
+   padding: 5px;
+   margin-top: 5px;
+   display:inline-block;
+}
 
 </style>
 </head>
@@ -529,58 +387,92 @@
 <body>
     <div class="bannerWrap">
         <div class="bannerLeft">
-            <a class="inputPageTitle">Data Analysis Page </a>
+            <a class="inputPageTitle">Data Analysis </a>
         </div>
         <div class="bannerRight">
             <ul class="mainMenu">
                 <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/homepage?__id=index" title="Home">
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/homepage?__id=positionList" title="Jobs">
-                        <span>Jobs</span>
-                    </a>
-                </li>
-                <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/homepage?__id=internships" title="Internships">
-                        <span>Internships</span>
-                    </a>
-                </li>
-                <li class="mainMenuItem overseasTalentPlan" >
-                    <a href="//campus.alibaba.com/en/talentPlan?" title="Talent Program">
-                        <span>Talent Program</span>
-                    </a>
-                    <ul class="talentPlanSelect">
-                    </ul>
-                </li>
-                <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/noticeList.htm" title="Announcement">
-                        <span>Announcement</span>
-                    </a>
-                </li>
-                <li class="mainMenuItem">
-                    <a href="//campus.alibaba.com/en/homepage?__id=companyIntroduce" title="About Alibaba">
+                    <a href="https://www.singtel.com/" title="About Alibaba">
                         <span>About Singtel</span>
                     </a>
                 </li>
+                <li class="mainMenuItem" style="float:right">
+                <a href="//campus.alibaba.com/en/homepage?__id=companyIntroduce" title="About Alibaba">
+                    <span> Hi {{ user.username }}!</span>
+                </a>
+                <a href="{% url 'logout' %}">
+                    <span>logout</span>
+                </a>
+            </li>
             </ul>
         </div>
     </div>
+   <!--div style="margin:100px">
+   <form action="/analysis/" method="post">
+       {% csrf_token %}
+       <h1>Please input the UEN of the customer you want to analyze below:</h1>
+       <h2></h2>
+       <input type="text" placeholder="Customer UEN..." class="kuma-input" name="uen">
+       <input type="submit" class="searchButton" Value="Submit">
+   </form>
+   </div-->
 
-    <div class="searchForCustomerInfo" style="">
+    <div id="analysisPanelWrapper">
+        <div id="findProductForCustomerPanel">
+            <h2>What products will our customer interested in?</h2>
+            <img src="{% static 'analysis/img/findProductForCustomer.png' %}">
+               <div class="searchBoxWrapper">
+                   <form action="/analysis/findProductForCustomerAnalysis/" method="post">
+                  {% csrf_token %}
+                   <input type="text" placeholder="Search By customer UEN(recommended)" class="kuma-input searchBox" size="35" id="uen" name="uen" >
+                   <input type="submit" Value="Search"  class="searchButton kuma-button kuma-button-lblue submit">
+                </form>
+               </div>
+               <div class="searchBoxWrapper">
+                <form action="/analysis/findProductForCustomerNameAnalysis/" method="post">
+                  {% csrf_token %}
+                    <input type="text" placeholder="Search By customer name" class="kuma-input searchBox"  name="customer_name" size="35">
+                    <input type="submit" Value="Search"  class="searchButton kuma-button kuma-button-lblue submit">
+                </form>
+               </div>
+        </div>
 
+       <div id="findCustomerProductMatchingPanel">
+           <h2>Will one customer be interested in one product?</h2>
+            <img src="{% static 'analysis/img/customerProductMatch.jpg' %}">
+               <div class="searchBoxWrapper">
+                   <form action="/analysis/customerProductMatchAnalysis/" method="post">
+                       {% csrf_token %}
+                       <div class = "searchBoxCombination">
+                       <input type="text" placeholder="Customer UEN" class="kuma-input searchBox" name="customer_uen" size="35" >
+                       <p class="operator">+</p>
+                           <select name="product_category">
+                             {% for choice in form2.product_category.field.choices %}
+                                   <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                              {% endfor %}
+                       </select>
+                       </div>
+                       <input type="submit" Value="Search"  class="kuma-button kuma-button-lblue submit searchButton" style="margin-top:20px">
+                    </form>
+               </div>
+       </div>
+
+        <div id="findCustomerFeatureForProductFeaturePanel">
+           <h2>What are the customers interested in one product?</h2>
+            <img src="{% static 'analysis/img/findCustomerForProduct.png' %}">
+               <div class="searchBoxWrapper">
+                   <form action="/analysis/findCustomerForProductAnalysis/" method="post">
+                       {% csrf_token %}
+                       <select name="product">
+                             {% for choice in form.product.field.choices %}
+                                   <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                              {% endfor %}
+                       </select>
+                       <input type="submit" Value="Search"  class="kuma-button kuma-button-lblue submit searchButton">
+                    </form>
+               </div>
+       </div>
     </div>
-
-    <div class="SearchForProductInfo">
-
-    </div>
-
-
-
 </body>
-
-<script src="{% static 'input/customerNameSearch.js' %}"></script>
 
 </html>

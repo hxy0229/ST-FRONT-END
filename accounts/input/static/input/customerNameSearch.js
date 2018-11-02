@@ -9,8 +9,16 @@ searchByCustomerNameBtn.onclick = function(){
     searchByCustomerNameModal.style.display = "block";
 }
 
-var closeModalBtn = document.getElementByClassName("closeModalBtn");
+var searchByCustomerNameModalCloseBtn = document.getElementById("searchByCustomerNameModalCloseBtn");
 // When the user clicks on <span> (x), close the modal
-closeModalBtn.onclick = function(){
+searchByCustomerNameModalCloseBtn.onclick = function(){
     searchByCustomerNameModal.style.display = "none";
 }
+
+var customerNameSearchingBtn = document.getElementById("customerNameSearchingBtn");
+     customerNameSearchingBtn.onclick = function(event){
+     event.preventDefault();
+     var c1 = "<li>Singtel</li>";
+     $("#firstCustomerName").after(c1);
+}
+

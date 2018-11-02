@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'signup',
-    'input',
-    'search',
-    'analysis',
+    'input.apps.InputConfig',
+    'search.apps.SearchConfig',
+    'analysis.apps.AnalysisConfig',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +85,7 @@ DATABASES = {
         'NAME': 'Singtel',
         'USER': 'David_Huang',
         'PASSWORD': 'dhly1518194984@',
-        'HOST': 'localhost\DAVIDSQL',
+        'HOST': 'localhost\\DAVIDSQL',
         'PORT': '',
 
         'OPTIONS': {

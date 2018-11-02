@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Data Search Page</title>
+    <link rel="stylesheet" href="//g.alicdn.com/alinw/kuma/4.0.1/kuma.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'search/dataSearch.css' %}">
+<style>
+    html, body, div, span, applet, object, iframe,
+     p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        font-family: PingFangSC-Medium !important;
+    }
+
+       /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+
+    body {
+        background: #f7f7f7;
+        font-size: 13px;
+    }
+
+    .form {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        background: #fff;
+        width: 1000px;
+        padding: 50px 23px 30px 23px;
+    }
+
+    .formField .kuma-label {
+        padding-right: 10px;
+        width: 170px;
+        font-family: PingFangSC-Medium !important;
+        font-size: 13px;
+        color: rgba(0,0,0,0.43);
+        font-weight: bold;
+    }
+
+    .formField .kuma-input {
+        height: 25px;
+        width: 322px;
+        line-height: 25px;
+        padding: 5px 10px;
+        margin-top: -6px;
+    }
+
+    .areaTitle {
+        height: 45px;
+    }
+
+    .areaTitle span {
+        color: #999;
+        float: left;
+    }
+
+    .areaTitle span:first-child {
+        font-weight: bold;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .areaTitle span:last-child {
+        width: 840px;
+        margin-left: 10px;
+    }
+
+    .addProduct {
+        margin-bottom: 35px;
+        position: relative;
+        top: -6px;
+    }
+
+    .kuma-form-required {
+        font-weight: normal;
+    }
+
+    .kuma-tag {
+        margin-right: 10px !important;
+    }
+
+    textarea {
+        padding: 5px 10px 5px 10px;
+        font-size: 12px;
+        color: rgba(0,0,0,0.7);
+    }
+
+    .kuma-dialog-confirm .kuma-button {
+        color: #fff;
+    }
+    .kuma-form-explain {
+        margin-left: 70px;
+    }
+    .kumaOther {
+        position: relative;
+        top: -10px;
+    }
+    .uploadedWrap a {
+        font-size: 13px;
+    }
+
+    .areaTitleP {
+        font-family: PingFangSC-Medium !important;
+        color: rgba(0,0,0,0.43);
+        font-weight: bold;
+        position: relative;
+        top: -20px;
+        margin-left: 72px;
+    }
+
+    /* banner */
+    .bannerWrap{
+        height: 60px;
+        background-color: #E43737;
+        font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+        box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .bannerWrap * {
+        box-sizing: border-box;
+    }
+    .bannerWrap .bannerLeft{
+        width: 200px;
+        float: left;
+    }
+    .bannerWrap .inputPageTitle {
+        float: left;
+        height: 34px;
+        position: relative;
+        color: #ffffff;
+        top: 20px;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: Georgia;
+        width: 200px;
+        margin-left: 20px;
+        box-sizing: border-box;
+    }
+    .bannerWrap .bannerRight {
+        padding-right: 20px;
+        height: 60px;
+        white-space: nowrap;
+    }
+    .bannerWrap .mainMenuItem,.maimMenuItemWrap {
+        position: relative;
+        display: inline-block;
+        height: 60px;
+        line-height: 60px;
+        text-align: left;
+        cursor: pointer;
+        vertical-align: top;
+        box-sizing: border-box;
+        white-space: nowrap;
+        opacity: .8;
+        float: left;
+    }
+    .bannerWrap .maimMenuItemWrap{
+        opacity: 1;
+    }
+    .bannerWrap .selectedItem {
+        background: #f2813f;
+        opacity: 1;
+    }
+    .bannerWrap .hoverItem {
+        background: #f2813f;
+        opacity: 1;
+    }
+    .bannerWrap .mainMenuItem > a {
+        display: inline-block;
+        padding: 0 18px;
+        height: 60px;
+        color: #fff;
+        text-decoration: none;
+    }
+    .bannerWrap .main-menu-submenu-title {
+        padding: 0 18px;
+        opacity: .8;
+    }
+    .bannerWrap .hoverItem .main-menu-submenu-title {
+        opacity: 1;
+    }
+    .bannerWrap .maimMenuItemText {
+        color: #fff;
+    }
+    .bannerWrap .maimMenuItemText:after {
+        content: "\e642";
+        font-family: kuma!important;
+        font-style: normal;
+        font-size: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 0;
+    }
+    .bannerWrap .maimMenuItemTextHover:after {
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+        -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+        transform-origin: center center;
+    }
+    .bannerWrap .main-menu-hidden {
+        display: none;
+    }
+    .bannerWrap .main-menu {
+        line-height: 2.5;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        min-width: 200px;
+        background-color: #fff;
+        box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+        border-radius: 3px;
+        border-top: 0 none;
+        z-index: 9;
+        padding: 10px 0;
+        list-style: none;
+    }
+    .bannerWrap .maim-menu-item {
+        display: block;
+        margin: 0;
+        width: 100%;
+        height: auto;
+    }
+    .bannerWrap .main-menu-item-child {
+        padding: 0 18px;
+        text-decoration: none;
+        color: rgba(0,0,0,.8);
+        opacity: 0.8;
+    }
+    .bannerWrap .main-menu-item-childH {
+        color: #f37327;
+        opacity: 1;
+    }
+
+    .uploadFile{
+        position:absolute;
+        margin-top:20px;
+        right:120px;
+        width:150px;
+        color:#ffffff;
+        background-color:#1a75ff;
+        font-size: 100%;
+        font-family: PingFangSC-Medium !important;
+    }
+
+    /*底部*/
+    .footerWrap {
+        height: 104px;
+        background: #414954;
+        /*position: fixed;*/
+        bottom: 0;
+        width: 100%;
+        /*z-index: 1;*/
+        line-height: 16px;
+    }
+    .footerText {
+        margin-right: 0px;
+        margin-left: 0px;
+        font-family: PingFangSC-Medium;
+        font-size: 13px;
+        color: #FFFFFF;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 15px;
+        display: inline-block;
+    }
+    .linkinHref {
+        font-size: 13px;
+        background: #506E99;
+        color: #fff !important;
+        display: inline-block;
+        margin-left: 3px;
+        width: 15px;
+        height: 15px;
+        text-decoration: none;
+    }
+    .footerTextWrap {
+        text-align: center;
+    }
+
+</style>
+</head>
+
+<body>
+    <div class="bannerWrap">
+        <div class="bannerLeft">
+            <a class="inputPageTitle">Data Search Page </a>
+        </div>
+        <div class="bannerRight">
+            <ul class="mainMenu">
+                <li class="mainMenuItem">
+                    <a href='' title="Home">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="mainMenuItem">
+                    <a href="//campus.alibaba.com/en/homepage?__id=companyIntroduce" title="About Alibaba">
+                        <span>About Singtel</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="page" data-spm-anchor-id="a1z08.2.0.i0.29c9978ba3cQZk">
+		<div id="content">
+	        <!-- 页面content内容开始 -->
+	        <div class="grid-c2" id="mytaobao-panel">
+	            <script type="text/javaScript">
+	var Y = YAHOO.util,D = Y.Dom, E = Y.Event;
+	var mytb_menu = function() {
+	   selectItem("newAccountSecurity");
+	};
+	E.onDOMReady(mytb_menu);
+</script>
+
+<link type="text/css" href="//g.alicdn.com//tb/mbis/0.4.3/old/security_setting_v2.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="//g.alicdn.com//tb/mbis/0.4.14/css/??account.css,message.css" rev="stylesheet">
+<style>
+  #mytaobao-panel .col-sub, #mytaobao-panel .sidebar {
+	    z-index: 4;
+  }
+  .zhx-anquan-page .zhx-anquan{
+    float: left;
+    width:345px;
+    height: 28px;
+    font-size: 12px;
+    background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fwOf9DBCP.png) center right no-repeat;
+    background-size: 252px 12px;
+    line-height: 28px;
+  }
+  .zhx-anquan-page .higher{
+    background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fza4eGci5.png) center right no-repeat;
+    background-size: 252px 12px;
+  }
+  .zhx-anquan-page .middle{
+    background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fzcA5LFXx.png) center right no-repeat;
+    background-size: 252px 12px;
+  }
+  .zhx-anquan-page .low{
+    background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fzdCpLFsr.png) center right no-repeat;
+    background-size: 252px 12px;
+  }
+  .zhx-anquan-page .zhx-anquan-level-high{
+    color: #94c324;
+    margin-left:6px;
+    margin-right: 15px;
+  }
+   .zhx-anquan-page .zhx-anquan-level-middle{
+    color: #fe9b00;
+    margin-left:6px;
+    margin-right: 15px;
+  }
+   .zhx-anquan-page .zhx-anquan-level-low{
+    color: #ff3600;
+    margin-left:6px;
+    margin-right: 15px;
+  }
+  .zhx-anquan-page .ui-poptip {
+    color: #DB7C22;
+    z-index: 101;
+    font-size: 12px;
+    line-height: 1.5;
+    zoom: 1;
+  }
+  .zhx-anquan-page .ui-poptip-container {
+    position: relative;
+    background-color: #ffffcc;
+    border: 1px solid #ffc662;
+    border-radius: 2px;
+    padding: 5px 15px;
+    zoom: 1;
+    _display: inline;
+  }
+  .zhx-anquan-page .ui-poptip-arrow-10 {
+    left: -6px;
+    top: 8px;
+  }
+  .zhx-anquan-page .ui-poptip-arrow {
+    position: absolute;
+    z-index: 10;
+  }
+
+
+ .zhx-anquan-page .ui-poptip-arrow em, .ui-poptip-arrow span {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    _border-color: tomato;
+    _filter: chroma(color=tomato);
+    border-style: solid;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+  }
+  .zhx-anquan-page .ui-poptip-arrow-10 em {
+    top: 0;
+    left: -1px;
+    border-right-color: #ffbb76;
+    border-width: 6px 6px 6px 0;
+  }
+  .zhx-anquan-page .ui-poptip-arrow-10 span {
+    border-right-color: #ffffcc;
+    border-width: 6px 6px 6px 0;
+  }
+  .zhx-anquan-page .ui-poptip:after, .ui-poptip-shadow:after, .ui-poptip-container:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  .zhx-anquan-page .ui-poptip-content{
+    display: inline;
+  }
+
+  .zhx-anquan-page .zhx-anquan-poptip{
+    background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fzWGP1BTZ.png) center left no-repeat;
+    _background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fwj9Yia7R.png) center left no-repeat;
+    background-size: 16px 18px;
+    display: inline-block;
+    padding-left: 33px;
+    margin-left: 12px;
+    *zoom:1;
+    *display:inline;
+  }
+  .zhx-anquan-page .higher-logo{
+
+    background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fzv7o8MS5.png) center left no-repeat;
+    _background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fzsuNZBq1.png) center left no-repeat;
+    background-size: 16px 18px;
+  }
+  .zhx-anquan-page .middle-logo{
+    background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fzwRZScO5.png) center left no-repeat;
+    _background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fzsLivIp3.png) center left no-repeat;
+    background-size: 16px 18px;
+  }
+  .zhx-anquan-page .low-logo{
+    background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3g04SwSVYz.png) center left no-repeat;
+    _background: url(https://i.alipayobjects.com/i/ecmng/png/201410/3fzriBr4jd.png) center left no-repeat;
+    background-size: 16px 18px;
+  }
+  .zhx-anquan-page .zhx-text{
+    color: #1379de;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .zhx-anquan-page .zhx-text:hover{
+    cursor: pointer;
+    color: #be831b;
+    text-decoration: underline;
+  }
+  .zhx-anquan-page .ui-poptip-content{
+    color: #636363;
+  }
+  .zhx-anquan-page .zhx-bill{
+    padding: 5px 0px;
+  }
+  .zhx-anquan-page .zhx-anquan-area{
+  margin-left:50px;
+}
+	body{color:#404040;font:normal 12px/1.6 arial;}
+    .msg-box{padding:20px 50px;}
+    .msg-tit{font:bold 14px/1.6 arial;}
+    .msg-cont{padding:10px 0;}
+    .btn-box{text-align:center;
+        padding-bottom: 20px;}
+
+
+        .safe-info .password .state span {
+          background: url(//img.alicdn.com/tps/i2/T1dw8nXcVcXXXXXXXX-18-161.png) no-repeat;
+        }
+        .safe-info .password .state span{
+          background-position: 40px -58px;
+        }
+        table, th, td {
+    border: 1px solid black;
+}
+
+</style>
+
+<div class="col-main">
+   <div class="main-wrap">
+      <span class="mytaobao-rc-tp"><span></span></span>
+      <div class="account-security" id="main-content" data-spm="1000500">
+         <dl class="detail-info">
+            <dt class="info-title">Product Basic Information</dt>
+               <div class="account-info">
+                  <li>
+                     <span>Product Layer 1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                     <span>{{products.0.financiall1}}</span>
+                  </li>
+                  <li>
+                     <span>Product Layer 2(Product Name):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                     <span>{{products.0.financiall2}}</span>
+                  </li>
+
+            <dt class="info-title topline">Subproducts</dt>
+            <br>
+<table style="width:100%">
+  <tr>
+    <th>Product Name</th>
+    <th>Product Manager</th>
+    <th>Device Management</th>
+    <th>Threat Analysis</th>
+    <th>Threat Detection</th>
+      <th>Threat Response</th>
+       <th>Threat Intelligence</th>
+       <th>Identify</th>
+       <th>Protect</th>
+  </tr>
+    {% for p in products %}
+  <tr>
+    <td>{{p.name}}</td>
+    <td>{{p.productmanagement}}</td>
+      {% if p.devicemanagementandmonitoring %}
+          <td>✓</td>
+      {% else %}
+           <td>✕</td>
+      {% endif %}
+
+      {% if p.threatanalysis %}
+          <td>✓</td>
+      {% else %}
+           <td>✕</td>
+      {% endif %}
+
+      {% if p.threatdetection %}
+          <td>✓</td>
+      {% else %}
+           <td>✕</td>
+      {% endif %}
+
+      {% if p.threatresponse %}
+          <td>✓</td>
+      {% else %}
+           <td>✕</td>
+      {% endif %}
+
+      {% if p.threatintelligence %}
+          <td>✓</td>
+      {% else %}
+           <td>✕</td>
+      {% endif %}
+
+     {% if p.identify %}
+          <td>✓</td>
+      {% else %}
+           <td>✕</td>
+      {% endif %}
+
+      {% if p.protect %}
+          <td>✓</td>
+      {% else %}
+           <td>✕</td>
+      {% endif %}
+
+     {% endfor %}
+  </tr>
+</table>
+               </div>
+         </dl>
+   </div>
+</div>
+    <h1></h1>
+<script>
+
+
+    KISSY.use("overlay,dom", function(S, Overlay) {
+
+        var dialog = null;
+        if(!S.get('#J_ShowDialog')) return;
+
+        S.one('#J_ShowDialog').on('click',function(e){
+            e.preventDefault();
+            dialog.show();
+        });
+
+        dialog = new S.Dialog({
+            bodyContent: S.one('#J_PopCont').html(),
+            width: 350,
+            elCls: "alipay-login-overlay",
+            align: {
+                points: ["cc", "cc"]
+            },
+            zIndex: 99999,
+            mask: true,
+            closable: true
+        });
+		dialog.on('show',function(){
+	        S.all('.btn_alipay2').on('click',function(e){
+	            e.preventDefault();
+	            dialog.hide();
+	        });
+		});
+
+    });
+</script>
+
+<script type="text/javascript" src="//g.alicdn.com//tb/mbis/0.4.3/js/minerva_ask.js?t=20110421"></script>
+
+<script type="text/javascript">
+	var MINERVA_POPUP_URL = "//service.taobao.com/support/minerva/minerva_ask.htm?minervasource=144";
+</script>
+
+
+<script type="text/javascript" language="JavaScript" src="//g.alicdn.com//tb/mbis/0.4.3/js/safe_center.js?t=20101026"></script>
+<script>
+
+		YAHOO.util.Event.onDOMReady(function(){
+
+		TB.SecurityPop.on("onCheckSuccess", function(){
+			if(YAHOO.util.Dom.hasClass(TB.SecurityPop.aimBtn, "J_SafeEmailClear")){
+    			document.getElementById('sec-email-form').submit();
+    		}
+			else if(YAHOO.util.Dom.hasClass(TB.SecurityPop.aimBtn, "J_PhoneClear")){
+				document.getElementById('phone-clear-form').submit();
+			}
+		});
+
+		          	TB.SecurityPop.on("onHide", function(){});
+        	});
+</script>
+
+				<div class="col-sub">
+								<style>
+		#Content .main-wrap,
+		#content .main-wrap {
+		    margin-left: 19px;
+		}
+
+		#Content .col-sub,
+		#content .col-sub {
+		    width: 139px;
+			margin-left: -100%;
+			*display: inline;
+		}
+	</style>
+
+					<!-- 注释不能删,解决ie6下面的一个bug -->
+				</div>
+				<div class="popup-tips skin-orange" id="J_PopUp" style="display: none;">
+                	<div class="box">
+                		<span class="rc-tp">
+                			<span></span>
+                		</span>
+                		<div class="bd">
+                			<span id="J_PopUpMsg"></span>
+                		</div>
+                		<span class="rc-bt">
+                			<span></span>
+                		</span>
+                	</div>
+                </div>
+                <script src="//assets.alicdn.com//app/uc/security_setting.js?t=20090616.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                	TB.app.security.SecuritySettingPage.initialize();
+                </script>
+	        </div>
+	    </div>
+	</div>
+
+</body>
+
+</html>

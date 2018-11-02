@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="//g.alicdn.com/alinw/kuma/4.0.1/kuma.css">
+
+<style>
+    html, body, div, span, applet, object, iframe,
+     p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        font-family: PingFangSC-Medium !important;
+    }
+
+       /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+
+    body {
+        background: #f7f7f7;
+        font-size: 13px;
+    }
+
+    .form {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        background: #fff;
+        width: 1000px;
+        padding: 50px 23px 30px 23px;
+    }
+
+    .formField .kuma-label {
+        padding-right: 10px;
+        width: 170px;
+        font-family: PingFangSC-Medium !important;
+        font-size: 13px;
+        color: rgba(0,0,0,0.43);
+        font-weight: bold;
+    }
+
+    .formField .kuma-input {
+        height: 25px;
+        width: 322px;
+        line-height: 25px;
+        padding: 5px 10px;
+        margin-top: -6px;
+    }
+
+    .areaTitle {
+        height: 45px;
+    }
+
+    .areaTitle span {
+        color: #999;
+        float: left;
+    }
+
+    .areaTitle span:first-child {
+        font-weight: bold;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .areaTitle span:last-child {
+        width: 840px;
+        margin-left: 10px;
+    }
+
+    .addProduct {
+        margin-bottom: 35px;
+        position: relative;
+        top: -6px;
+    }
+
+    .kuma-form-required {
+        font-weight: normal;
+    }
+
+    .kuma-tag {
+        margin-right: 10px !important;
+    }
+
+    textarea {
+        padding: 5px 10px 5px 10px;
+        font-size: 12px;
+        color: rgba(0,0,0,0.7);
+    }
+
+    .kuma-dialog-confirm .kuma-button {
+        color: #fff;
+    }
+    .kuma-form-explain {
+        margin-left: 70px;
+    }
+    .kumaOther {
+        position: relative;
+        top: -10px;
+    }
+    .uploadedWrap a {
+        font-size: 13px;
+    }
+
+    .areaTitleP {
+        font-family: PingFangSC-Medium !important;
+        color: rgba(0,0,0,0.43);
+        font-weight: bold;
+        position: relative;
+        top: -20px;
+        margin-left: 72px;
+    }
+
+    /* banner */
+    .bannerWrap{
+        height: 60px;
+        background-color: #E43737;
+        font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+        box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .bannerWrap * {
+        box-sizing: border-box;
+    }
+    .bannerWrap .bannerLeft{
+        width: 200px;
+        float: left;
+    }
+    .bannerWrap .inputPageTitle {
+        float: left;
+        height: 34px;
+        position: relative;
+        color: #ffffff;
+        top: 20px;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: Georgia;
+        width: 200px;
+        margin-left: 20px;
+        box-sizing: border-box;
+    }
+    .bannerWrap .bannerRight {
+        padding-right: 20px;
+        height: 60px;
+        white-space: nowrap;
+    }
+    .bannerWrap .mainMenuItem,.maimMenuItemWrap {
+        position: relative;
+        display: inline-block;
+        height: 60px;
+        line-height: 60px;
+        text-align: left;
+        cursor: pointer;
+        vertical-align: top;
+        box-sizing: border-box;
+        white-space: nowrap;
+        opacity: .8;
+        float: left;
+    }
+    .bannerWrap .maimMenuItemWrap{
+        opacity: 1;
+    }
+    .bannerWrap .selectedItem {
+        background: #f2813f;
+        opacity: 1;
+    }
+    .bannerWrap .hoverItem {
+        background: #f2813f;
+        opacity: 1;
+    }
+    .bannerWrap .mainMenuItem > a {
+        display: inline-block;
+        padding: 0 18px;
+        height: 60px;
+        color: #fff;
+        text-decoration: none;
+    }
+    .bannerWrap .main-menu-submenu-title {
+        padding: 0 18px;
+        opacity: .8;
+    }
+    .bannerWrap .hoverItem .main-menu-submenu-title {
+        opacity: 1;
+    }
+    .bannerWrap .maimMenuItemText {
+        color: #fff;
+    }
+    .bannerWrap .maimMenuItemText:after {
+        content: "\e642";
+        font-family: kuma!important;
+        font-style: normal;
+        font-size: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 0;
+    }
+    .bannerWrap .maimMenuItemTextHover:after {
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+        -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+        transform-origin: center center;
+    }
+    .bannerWrap .main-menu-hidden {
+        display: none;
+    }
+    .bannerWrap .main-menu {
+        line-height: 2.5;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        min-width: 200px;
+        background-color: #fff;
+        box-shadow: 0 1px 4px 0 rgba(31,56,88,.15);
+        border-radius: 3px;
+        border-top: 0 none;
+        z-index: 9;
+        padding: 10px 0;
+        list-style: none;
+    }
+    .bannerWrap .maim-menu-item {
+        display: block;
+        margin: 0;
+        width: 100%;
+        height: auto;
+    }
+    .bannerWrap .main-menu-item-child {
+        padding: 0 18px;
+        text-decoration: none;
+        color: rgba(0,0,0,.8);
+        opacity: 0.8;
+    }
+    .bannerWrap .main-menu-item-childH {
+        color: #f37327;
+        opacity: 1;
+    }
+
+    .uploadFile{
+        position:absolute;
+        margin-top:20px;
+        right:120px;
+        width:150px;
+        color:#ffffff;
+        background-color:#1a75ff;
+        font-size: 100%;
+        font-family: PingFangSC-Medium !important;
+    }
+
+    /*底部*/
+    .footerWrap {
+        height: 104px;
+        background: #414954;
+        /*position: fixed;*/
+        bottom: 0;
+        width: 100%;
+        /*z-index: 1;*/
+        line-height: 16px;
+    }
+    .footerText {
+        margin-right: 0px;
+        margin-left: 0px;
+        font-family: PingFangSC-Medium;
+        font-size: 13px;
+        color: #FFFFFF;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 15px;
+        display: inline-block;
+    }
+    .linkinHref {
+        font-size: 13px;
+        background: #506E99;
+        color: #fff !important;
+        display: inline-block;
+        margin-left: 3px;
+        width: 15px;
+        height: 15px;
+        text-decoration: none;
+    }
+    .footerTextWrap {
+        text-align: center;
+    }
+
+    h1{
+    text-align:center;
+    margin-top:15px;
+    font-size: 100%;
+    font: inherit;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size:30px;
+    font-weight:bold;
+}
+
+#searchPanelWrapper{
+    height:550px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    text-align: center;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#dataAnalysisPanel,#dataSearchPanel,#dataInputPanel{
+   float: left;
+   width: 25%;
+   height: 300px;
+   border: 5px;
+   padding: 25px;
+   margin: 25px;
+   display:inline-block;
+}
+
+</style>
+</head>
+
+<body>
+    <div class="bannerWrap">
+    <div class="bannerLeft">
+        <a class="inputPageTitle">Home Page</a>
+    </div>
+    <div class="bannerRight">
+        <ul class="mainMenu">
+            {% if dealinput %}
+               <li class="mainMenuItem">
+                   <a style="font:bold" title="Home">
+                      <span>New Deal input successful!</span>
+                   </a>
+               </li>
+            {% else %}
+               <li class="mainMenuItem">
+                   <a href="//campus.alibaba.com/en/homepage?__id=index" title="Home">
+                      <span></span>
+                   </a>
+               </li>
+            {% endif %}
+            <li class="mainMenuItem" style="float:right">
+                <a href="//campus.alibaba.com/en/homepage?__id=companyIntroduce" title="About Alibaba">
+                    <span> Hi {{ user.username }}!</span>
+                </a>
+                <a href="{% url 'logout' %}">
+                    <span>logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+    <div id="searchPanelWrap">
+
+        <div id="dataInputPanel">
+            <a href="/input/"><img src="{% static 'img/input.png' %}" href="/input/" ></a>
+            <a href="/input/"><h1>Data Input</h1></a>
+        </div>
+
+       <div id="dataSearchPanel">
+          <a href="/search/"> <img src="{% static '/img/search.jpg' %}"  href="/search/"></a>
+            <a href="/search/"><h1>Data Search</h1></a>
+       </div>
+
+        <div id="dataAnalysisPanel">
+          <a href="/analysis/"> <img src="{% static '/img/analysis.jpg' %}"  href="/analysis/"></a>
+            <a href="/analysis/"><h1>Data Analysis</h1></a>
+       </div>
+    </div>
+
+</body>
+
+</html>
